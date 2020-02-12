@@ -194,7 +194,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_gherkin:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_gherkin
       url: "https://pub.dartlang.org"

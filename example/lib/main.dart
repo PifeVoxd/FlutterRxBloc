@@ -8,7 +8,6 @@ import 'package:flutter_rx_bloc/provider/rx_bloc_provider.dart';
 import 'package:flutter_rx_bloc/provider/rx_multi_bloc_provider.dart';
 
 import 'bloc/counter_bloc.dart';
-import 'bloc/counter_bloc.g.dart';
 
 void main() => runApp(MyApp());
 

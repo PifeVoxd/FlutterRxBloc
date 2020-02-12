@@ -3,11 +3,7 @@
 // **************************************************************************
 // Generator: RxBlocGeneratorForAnnotation
 // **************************************************************************
-
-import 'package:example/bloc/counter_bloc.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:rxdart/rxdart.dart';
-import 'package:rx_bloc/bloc/rx_bloc_base.dart';
+part of 'counter_bloc.dart';
 
 abstract class CounterBlocType extends RxBlocTypeBase {
   CounterBlocEvents get events;
@@ -15,25 +11,25 @@ abstract class CounterBlocType extends RxBlocTypeBase {
   CounterBlocStates get states;
 }
 
-abstract class $CounterBloc extends RxBlocBase
+abstract class _$CounterBloc extends RxBlocBase
     implements CounterBlocEvents, CounterBlocStates, CounterBlocType {
   ///region Events
 
   ///region increment
   @protected
-  final $incrementEvent = PublishSubject<void>();
+  final _$incrementEvent = PublishSubject<void>();
 
   @override
-  void increment() => $incrementEvent.add(null);
+  void increment() => _$incrementEvent.add(null);
 
   ///endregion increment
 
   ///region decrement
   @protected
-  final $decrementEvent = PublishSubject<void>();
+  final _$decrementEvent = PublishSubject<void>();
 
   @override
-  void decrement() => $decrementEvent.add(null);
+  void decrement() => _$decrementEvent.add(null);
 
   ///endregion decrement
 
@@ -45,10 +41,10 @@ abstract class $CounterBloc extends RxBlocBase
   Stream<String> _countState;
 
   @override
-  Stream<String> get count => _countState ??= mapToCountState();
+  Stream<String> get count => _countState ??= _mapToCountState();
 
   @protected
-  Stream<String> mapToCountState();
+  Stream<String> _mapToCountState();
 
   ///endregion count
 
@@ -57,10 +53,10 @@ abstract class $CounterBloc extends RxBlocBase
 
   @override
   Stream<bool> get incrementEnabled =>
-      _incrementEnabledState ??= mapToIncrementEnabledState();
+      _incrementEnabledState ??= _mapToIncrementEnabledState();
 
   @protected
-  Stream<bool> mapToIncrementEnabledState();
+  Stream<bool> _mapToIncrementEnabledState();
 
   ///endregion incrementEnabled
 
@@ -69,10 +65,10 @@ abstract class $CounterBloc extends RxBlocBase
 
   @override
   Stream<bool> get decrementEnabled =>
-      _decrementEnabledState ??= mapToDecrementEnabledState();
+      _decrementEnabledState ??= _mapToDecrementEnabledState();
 
   @protected
-  Stream<bool> mapToDecrementEnabledState();
+  Stream<bool> _mapToDecrementEnabledState();
 
   ///endregion decrementEnabled
 
@@ -81,12 +77,23 @@ abstract class $CounterBloc extends RxBlocBase
 
   @override
   Stream<String> get infoMessage =>
-      _infoMessageState ??= mapToInfoMessageState();
+      _infoMessageState ??= _mapToInfoMessageState();
 
   @protected
-  Stream<String> mapToInfoMessageState();
+  Stream<String> _mapToInfoMessageState();
 
   ///endregion infoMessage
+
+  ///region partModel
+  Stream<PartModel> _partModelState;
+
+  @override
+  Stream<PartModel> get partModel => _partModelState ??= _mapToPartModelState();
+
+  @protected
+  Stream<PartModel> _mapToPartModelState();
+
+  ///endregion partModel
 
   ///endregion States
 
@@ -101,8 +108,8 @@ abstract class $CounterBloc extends RxBlocBase
   ///endregion Type
   @override
   void dispose() {
-    $incrementEvent.close();
-    $decrementEvent.close();
+    _$incrementEvent.close();
+    _$decrementEvent.close();
     super.dispose();
   }
 }
