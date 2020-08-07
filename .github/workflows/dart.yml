@@ -2,9 +2,9 @@ name: Dart CI
 
 on:
   push:
-    branches: [ master, develop ]
+    branches: [ master, develop, bugfix/fix-ci]
   pull_request:
-    branches: [ master, develop ]
+    branches: [ master, develop, bugfix/fix-ci]
 
 jobs:
    # id of job, a string that is unique to the "jobs" node above.
