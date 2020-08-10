@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rx_bloc/provider/rx_bloc_builder.dart';
-import 'package:flutter_rx_bloc/provider/rx_result_builder.dart';
 
 import '../bloc/details_bloc.dart';
 
@@ -17,14 +16,14 @@ class DetailsWidget extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: Center(
-                child: RxResultBuilder<DetailsBlocType, String>(
+                child: RxBlocBuilder<DetailsBlocType, String>(
                   state: (bloc) => bloc.states.details,
-                  buildSuccess: (context, data, bloc) =>
-                      _buildDetailsText(data ?? ''),
-                  buildLoading: (context, bloc) =>
-                      _buildDetailsText('Loading...'),
-                  buildError: (context, error, bloc) =>
-                      _buildDetailsText('Error: $error'),
+                  builder: (context, snapshot, bloc) => Text(
+                    snapshot.data ?? '',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 26),
+                    key: ValueKey('reload_text'),
+                  ),
                 ),
               ),
             ),
@@ -43,13 +42,6 @@ class DetailsWidget extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildDetailsText(String text) => Text(
-        text,
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 26),
-        key: ValueKey('reload_text'),
-      );
 }
 
 extension _IsLoading on AsyncSnapshot {
